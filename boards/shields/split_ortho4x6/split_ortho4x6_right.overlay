@@ -73,10 +73,10 @@
             layers = <5>; // レイヤー5でのみスクロールが有効
             input-processors = <
                 // XY入力をスクロールにマッピング
-                &zip_xy_to_scroll_mapper>, 
+                &zip_xy_to_scroll_mapper>
                 
                 // 🚨 修正1: Y軸反転フラグ (INPUT_TRANSFORM_Y_INVERT) を追加
-                &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>, 
+                &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
                 
                 // 🚨 修正2: スケーラーの値を 128 から 256 に変更して速度を約2倍に
                 // 最初の引数は、スケーラーを適用するInput Processor（通常は1つなので 1）
