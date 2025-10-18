@@ -63,9 +63,26 @@
             &zip_temp_layer 4 10000 
         >;
 
+        // scroller {
+        //     layers = <5>;
+        //     input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 128>;
+        //     process-next;
+        // };
+
         scroller {
-            layers = <5>;
-            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 128>;
+            layers = <5>; // レイヤー5でのみスクロールが有効
+            input-processors = <
+                // XY入力をスクロールにマッピング
+                &zip_xy_to_scroll_mapper>, 
+                
+                // 🚨 修正1: Y軸反転フラグ (INPUT_TRANSFORM_Y_INVERT) を追加
+                &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>, 
+                
+                // 🚨 修正2: スケーラーの値を 128 から 256 に変更して速度を約2倍に
+                // 最初の引数は、スケーラーを適用するInput Processor（通常は1つなので 1）
+                // 2番目の引数 256 が速度の倍率 (デフォルトの128の約2倍)
+                &zip_scroll_scaler 1 256
+            >;
             process-next;
         };
     };
