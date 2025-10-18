@@ -5,10 +5,7 @@
 #include "layouts.dtsi"
 
 &zip_temp_layer {
-    // 最後にキーが押されてから200ms後にAMLが発動する
-    require-prior-idle-ms = <200>;
-    // excluded-positions の設定（ここではキー位置は不明のためコメントアウト）
-    // excluded-positions = <18 19 21 34>; // 例: マウスキーなど、押しても解除しないキーを設定
+    input-processors = <&zip_temp_layer 4 250>;
 };
 
 / {
@@ -58,7 +55,7 @@
         // 🚨 追記 2: zip_temp_layer を Input Processor として適用
         // <&zip_temp_layer (レイヤー番号) (タイムアウトms)>
         // トラックボール使用後、レイヤー 5 が 10秒間有効になる
-        input-processors = <&zip_temp_layer 5 10000>;
+        input-processors = <&zip_temp_layer 4 10000>;
         
         // 元の入力変換は zip_temp_layer のプロパティとして処理されるため、
         // ここから削除するか、zip_temp_layerの後に移動する必要があります。
