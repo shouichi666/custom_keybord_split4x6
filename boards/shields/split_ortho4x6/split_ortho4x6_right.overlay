@@ -65,7 +65,13 @@
 
         scroller {
             layers = <5>;
-            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 256>;
+            input-processors = <
+                &zip_xy_to_scroll_mapper        // XY をスクロールに変換
+                &zip_scroll_transform 0         // 0 → X/Y反転なし（順方向）
+                &zip_scroll_scaler 1 256        // スクロールの感度調整
+            >;
+            // input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 256>;
+            // input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 256>;
             process-next;
         };
     };
