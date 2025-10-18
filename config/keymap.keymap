@@ -46,7 +46,7 @@
         layer_4 {
             bindings = <
 &bootloader  &trans  &trans  &trans  &trans  &sys_reset  &sys_reset   &trans  &trans    &trans    &trans  &bt BT_CLR_ALL
-&trans       &trans  &trans  &trans  &trans              &bootloader  &trans  &mkp MB2  &mkp MB1  &trans  &trans
+&trans       &trans  &trans  &trans  &trans              &bootloader  &trans  &mkp MB2  &mkp MB1  &to 5   &trans
 &trans       &trans  &trans  &trans  &trans                           &trans  &trans    &trans    &trans  &trans
 &trans       &trans  &trans  &trans  &trans  &trans      &trans       &trans                              &trans
             >;
