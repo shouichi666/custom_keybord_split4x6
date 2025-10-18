@@ -4,9 +4,9 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include "layouts.dtsi"
 
-&zip_temp_layer {
-    input-processors = <&zip_temp_layer 4 250>;
-};
+// &zip_temp_layer {
+//     input-processors = <&zip_temp_layer 4 250>;
+// };
 
 / {
     chosen {
