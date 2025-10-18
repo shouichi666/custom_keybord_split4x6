@@ -6,12 +6,12 @@
 
 &zip_temp_layer {
     require-prior-idle-ms = <200>;
-    // excluded-positions = <
-    //     18 // J
-    //     19 // K
-    //     21 // ;
-    //     34 // Ctrl
-    // >;
+    // excluded-positions のコメントを解除し、キー位置を設定
+    excluded-positions = <
+        20 // &mkp MB2
+        21 // &mkp MB1
+        22 // &mo 5
+    >;
 };
 
 / {
@@ -59,7 +59,7 @@
         
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-            &zip_temp_layer 4 10
+            &zip_temp_layer 4 10000
             &zip_xy_scaler 3 4
         >;
 
