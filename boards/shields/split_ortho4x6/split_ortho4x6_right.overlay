@@ -51,17 +51,12 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
         // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-
-        // 🚨 追記 2: zip_temp_layer を Input Processor として適用
-        // <&zip_temp_layer (レイヤー番号) (タイムアウトms)>
-        // トラックボール使用後、レイヤー 5 が 10秒間有効になる
-        input-processors = <&zip_temp_layer 4 10000>;
         
         // 元の入力変換は zip_temp_layer のプロパティとして処理されるため、
         // ここから削除するか、zip_temp_layerの後に移動する必要があります。
         // ただし、カスタムドライバの仕様によっては input-processors に複数指定できます。
         // ここでは一旦そのまま残しますが、ビルドエラーが出た場合は input-processors を <&zip_temp_layer 5 10000> のみにしてください。
-        // input-processors = <&zip_temp_layer 5 10000>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+        input-processors = <&zip_temp_layer 4 10000>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
 
     split_inputs {
