@@ -4,6 +4,13 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include "layouts.dtsi"
 
+&zip_temp_layer {
+    // 最後にキーが押されてから200ms後にAMLが発動する
+    require-prior-idle-ms = <200>;
+    // excluded-positions の設定（ここではキー位置は不明のためコメントアウト）
+    // excluded-positions = <18 19 21 34>; // 例: マウスキーなど、押しても解除しないキーを設定
+};
+
 / {
     chosen {
         zmk,physical-layout = &physical_layout0;
@@ -46,7 +53,18 @@
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+        // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+
+        // 🚨 追記 2: zip_temp_layer を Input Processor として適用
+        // <&zip_temp_layer (レイヤー番号) (タイムアウトms)>
+        // トラックボール使用後、レイヤー 5 が 10秒間有効になる
+        input-processors = <&zip_temp_layer 5 10000>;
+        
+        // 元の入力変換は zip_temp_layer のプロパティとして処理されるため、
+        // ここから削除するか、zip_temp_layerの後に移動する必要があります。
+        // ただし、カスタムドライバの仕様によっては input-processors に複数指定できます。
+        // ここでは一旦そのまま残しますが、ビルドエラーが出た場合は input-processors を <&zip_temp_layer 5 10000> のみにしてください。
+        input-processors = <&zip_temp_layer 5 10000>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
 
     split_inputs {
@@ -102,7 +120,6 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
-        automouse-layer = <4>; // オートマウスレイヤーを4に設定
     };
 };
 
