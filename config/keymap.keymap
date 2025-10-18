@@ -12,7 +12,7 @@
 &kp Q      &kp W     &kp E             &kp R      &kp T                   &kp ESC    &kp BSPC   &kp Y        &kp U  &kp I      &kp O       &kp P
 &kp A      &kp S     &kp D             &kp F      &kp G                              &kp DEL    &kp H        &kp J  &kp K      &kp L       &kp MINUS
 &kp Z      &kp X     &kp C             &kp V      &kp B                                         &kp N        &kp M  &kp COMMA  &kp PERIOD  &kp EQUAL
-&kp LSHFT  &kp LALT  &kp LEFT_CONTROL  &lt 2 ESC  &mt LEFT_COMMAND LANG2  &kp SPACE  &kp ENTER  &mt 1 LANG1                                &mt 4 ESC
+&kp LSHFT  &kp LALT  &kp LEFT_CONTROL  &lt 2 ESC  &mt LEFT_COMMAND LANG2  &kp SPACE  &kp ENTER  &lt 1 LANG1                                &lt 4 ESC
             >;
         };
 
