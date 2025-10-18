@@ -58,11 +58,12 @@
         device = <&trackball>;
         // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
         
-        // 元の入力変換は zip_temp_layer のプロパティとして処理されるため、
-        // ここから削除するか、zip_temp_layerの後に移動する必要があります。
-        // ただし、カスタムドライバの仕様によっては input-processors に複数指定できます。
-        // ここでは一旦そのまま残しますが、ビルドエラーが出た場合は input-processors を <&zip_temp_layer 5 10000> のみにしてください。
-        input-processors = <&zip_temp_layer 4 10000>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+        input-processors = <
+            // 1. カーソル移動のデータ（X/Y変換）を先に処理する
+            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT),
+            // 2. そのデータ発生をトリガーにレイヤー 5 を 10秒間有効化する
+            &zip_temp_layer 4 10000 
+        >;
     };
 
     split_inputs {
