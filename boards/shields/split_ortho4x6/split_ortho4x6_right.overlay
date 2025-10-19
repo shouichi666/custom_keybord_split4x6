@@ -92,7 +92,7 @@
         status = "okay";
 
         input-processors = <
-            &zip_xy_scaler 20 30 // 例: 感度調整
+            &zip_xy_scaler 2 3 // 例: 感度調整
             &zip_temp_layer 4 10000 // 例: オートレイヤー切り替え
         >;
 
@@ -100,7 +100,7 @@
             layers = <5>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
-                &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
+                // &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
                 &zip_scroll_scaler 1 70
             >;
             process-next;
