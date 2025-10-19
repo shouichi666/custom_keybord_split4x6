@@ -42,6 +42,15 @@
             ;
     };
 
+    &trackpad_listener {
+        input-processors = <&zip_xy_scaler 3 2>;
+
+        scroller {
+            layers = <1>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
+    }
+
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
@@ -91,20 +100,5 @@
         compatible = "azoteq,iqs7211e";
         reg = <0x56>;
         irq-gpios = <&gpio0 13 GPIO_PULL_UP>; 
-    };
-};
-
-
-
-/ {
-    // スクロールプロセッサを定義し、トラックパッドデバイスを参照させる
-    scroll_processor: scroll_processor {
-        compatible = "zmk,pointer-scroll-processor";
-        
-        // トラックパッドのデバイスノードをここで指定する
-        device = <&trackpad>; 
-        
-        // レイヤー5がアクティブなときのみスクロールを有効にする
-        layer-enable-keys = <5>; 
     };
 };
