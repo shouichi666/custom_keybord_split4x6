@@ -1,0 +1,13 @@
+&zip_gestures {
+    // タップ検出を有効化（クリック）
+    tap-detection; 
+    
+    // 慣性カーソルを有効化（指を離した後も滑らかに動く）
+    inertial-cursor;
+    
+    // 円形スクロールを有効化（絶対座標モードが必要）
+    circular-scroll; 
+    
+    // 必要に応じて、タップ認識の閾値などを調整できます
+    // tap-time-threshold-ms = <150>;
+};
