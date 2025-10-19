@@ -4,6 +4,22 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    macros {
+        b0: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 0 &bt BT_SEL 0>;
+            label = "NEW_MACRO";
+        };
+
+        b1: b1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 1 &bt BT_SEL 1>;
+            label = "B1";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -63,7 +79,7 @@
 
         layer_6 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LG(LA(LEFT_ARROW))  &kp LC(UP_ARROW)    &kp LG(LA(RIGHT_ARROW))  &kp LG(RIGHT_ARROW)
+&b0     &b1     &trans  &trans  &trans  &trans  &trans  &trans  &kp LG(LA(LEFT_ARROW))  &kp LC(UP_ARROW)    &kp LG(LA(RIGHT_ARROW))  &kp LG(RIGHT_ARROW)
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &kp LC(LEFT_ARROW)      &kp LC(DOWN_ARROW)  &kp LC(RIGHT_ARROW)      &kp LG(LEFT_ARROW)
 &trans  &trans  &trans  &trans  &trans                  &trans  &trans                  &trans              &trans                   &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                                                                       &trans
