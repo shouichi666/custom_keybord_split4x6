@@ -51,17 +51,6 @@
             device = <&trackpad>;
         };
     };
-
-    // スクロール機能を追加する入力プロセッサの定義
-    scroll_processor: scroll_processor {
-        compatible = "zmk,pointer-scroll-processor";
-        device = <&trackpad>;
-        
-        // 通常の移動からスクロールへの変換を有効化するキーコードやレイヤーを定義
-        // ここではレイヤー5が有効な時にスクロールに変換する設定を例として使用します。
-        // layer-enable-keys プロパティは、指定されたレイヤーが有効な場合にのみスクロールを有効にします。
-        layer-enable-keys = <5>; 
-    };
 };
 
 &physical_layout0 {
@@ -102,5 +91,20 @@
         compatible = "azoteq,iqs7211e";
         reg = <0x56>;
         irq-gpios = <&gpio0 13 GPIO_PULL_UP>; 
+    };
+};
+
+
+
+/ {
+    // スクロールプロセッサを定義し、トラックパッドデバイスを参照させる
+    scroll_processor: scroll_processor {
+        compatible = "zmk,pointer-scroll-processor";
+        
+        // トラックパッドのデバイスノードをここで指定する
+        device = <&trackpad>; 
+        
+        // レイヤー5がアクティブなときのみスクロールを有効にする
+        layer-enable-keys = <5>; 
     };
 };
