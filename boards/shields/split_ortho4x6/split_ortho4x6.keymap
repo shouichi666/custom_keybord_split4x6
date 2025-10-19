@@ -1,4 +1,3 @@
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
@@ -8,23 +7,22 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // 既存のレイヤー構造を維持しつつ、ジェスチャーのバインドを追加
+        /* 既存のレイヤー構造を維持しつつ、ジェスチャーのバインドを追加 */
         default_layer {
             bindings = <
-                // ... 既存のキーバインド ...
+                /* ... 既存のキーバインド ... */
 
-                // 例: 2本指スクロールをPage Up/Downに割り当て
+                /* 2本指スクロールとスワイプのバインド例 */
                 ZMK_GESTURE_SCROLL_UP       KC_PGUP
                 ZMK_GESTURE_SCROLL_DOWN     KC_PGDN
                 
-                // 例: 2本指スワイプをメディアキーやレイヤー操作に割り当て
                 ZMK_GESTURE_SWIPE_LEFT      &kp KC_MPRV
                 ZMK_GESTURE_SWIPE_RIGHT     &kp KC_MNXT
 
-                // ... 既存のキーバインド ...
+                /* ... 既存のキーバインド ... */
             >;
         };
 
-        // ... 他のレイヤー定義 ...
+        /* ... 他のレイヤー定義 ... */
     };
 };
