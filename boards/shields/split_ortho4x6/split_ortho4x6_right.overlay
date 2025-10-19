@@ -55,34 +55,26 @@
             ;
     };
 
-    // trackball_listener: trackball_listener {
-    //     compatible = "zmk,input-listener";
-    //     device = <&trackball>;
-        
-    //     input-processors = <
-    //         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-    //         &zip_temp_layer 4 10000
-    //         &zip_x_scaler 5 5
-    //         &zip_y_scaler 11 11
-    //     >;
-
-    //     scroller {
-    //         layers = <5>;
-    //         input-processors = <
-    //             &zip_xy_to_scroll_mapper
-    //             &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
-    //             &zip_scroll_scaler 1 30
-    //         >;
-    //         process-next;
-    //     };
-    // };
-
-    trackpad_split_listener: trackpad_split_listener {
+    trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
-        device = <&trackpad_split>; // ⬅️ split ノードを参照
-        status = "okay";
+        device = <&trackball>;
         
+        input-processors = <
+            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
+            &zip_temp_layer 4 10000
+            &zip_x_scaler 4 4
+            &zip_y_scaler 11 11
+        >;
 
+        scroller {
+            layers = <5>;
+            input-processors = <
+                &zip_xy_to_scroll_mapper
+                &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
+                &zip_scroll_scaler 1 30
+            >;
+            process-next;
+        };
     };
 
     split_inputs {
