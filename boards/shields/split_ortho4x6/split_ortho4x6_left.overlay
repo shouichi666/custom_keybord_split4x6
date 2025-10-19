@@ -46,17 +46,21 @@
         compatible = "zmk,input-listener";
         device = <&trackpad>;
 
-        /* 1本指 → カーソル操作 */
         input-processors = 
-            <&zip_xy_transform 0x03>,
-            <&zip_xy_scaler 2 2>;
+            <&zip_touch_finger_router  /* 指の本数ルーター、ただし実装の有無要確認 */>;
 
-        /* 2本指 → スクロール操作 */
-        gestures {
-            compatible = "zmk,gesture-map";
-            gesture-map = 
-                <GESTURE_TYPE_SCROLL &zip_xy_to_scroll_mapper>,
-                <&zip_scroll_transform 0x03>,
+        /* 1本指モード：カーソル */
+        cursor_mode: cursor_mode {
+            input-processors = 
+                <&zip_xy_transform 0x03>,   /* X/Y反転（値0x03は X_INVERT | Y_INVERT） */
+                <&zip_xy_scaler 2 2>;
+        };
+
+        /* 2本指モード：スクロール */
+        scroll_mode: scroll_mode {
+            input-processors = 
+                <&zip_xy_to_scroll_mapper>,
+                <&zip_scroll_transform 0x00>,  /* 0x00＝反転なし（自然スクロール） */
                 <&zip_scroll_scaler 1 256>;
         };
     };
