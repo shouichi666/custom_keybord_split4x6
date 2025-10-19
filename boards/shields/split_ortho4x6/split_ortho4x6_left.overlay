@@ -102,6 +102,5 @@
         compatible = "azoteq,iqs7211e";
         reg = <0x56>;
         irq-gpios = <&gpio0 13 GPIO_PULL_UP>; 
-        input-processors = <&scroll_processor>;
     };
 };
