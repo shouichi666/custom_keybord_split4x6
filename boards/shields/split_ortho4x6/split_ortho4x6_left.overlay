@@ -42,14 +42,14 @@
             ;
     };
 
-    &trackpad_listener {
-        input-processors = <&zip_xy_scaler 3 2>;
+    // &trackpad_listener {
+    //     input-processors = <&zip_xy_scaler 3 2>;
 
-        scroller {
-            layers = <1>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
-        };
-    }
+    //     scroller {
+    //         layers = <1>;
+    //         input-processors = <&zip_xy_to_scroll_mapper>;
+    //     };
+    // }
 
     split_inputs {
         #address-cells = <1>;
@@ -102,7 +102,6 @@
         irq-gpios = <&gpio0 13 GPIO_PULL_UP>; 
     };
 };
-
 
 
 // / {

@@ -55,6 +55,15 @@
             ;
     };
 
+    trackpad_listener: trackpad_listener {
+        input-processors = <&zip_xy_scaler 3 2>;
+
+        scroller {
+            layers = <1>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
+    }
+
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
