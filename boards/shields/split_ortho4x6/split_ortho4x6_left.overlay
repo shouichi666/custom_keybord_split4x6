@@ -111,7 +111,7 @@
         compatible = "azoteq,iqs7211e";
         reg = <0x56>;
         irq-gpios = <&gpio0 13 GPIO_PULL_UP>; 
-        **input-processors = <&two_finger_gesture>;**
+        // ❌ ここにあった不正な行を削除しました
     };
 };
 
@@ -127,6 +127,8 @@
             &zip_xy_transform 0 
             &zip_x_scaler 3 5
             &zip_y_scaler 3 5
+            // ✅ ジェスチャープロセッサをリスナーの最後に追加
+            &two_finger_gesture 
         >;
     };
 };
