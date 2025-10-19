@@ -42,7 +42,7 @@
             ;
     };
 
-    trackpad_listener: trackpad_listener 
+    trackpad_listener: trackpad_listener {
         device = <&trackpad>;
         input-processors = <
             &zip_xy_scaler 20 30
@@ -109,6 +109,7 @@
         compatible = "azoteq,iqs7211e";
         reg = <0x56>;
         irq-gpios = <&gpio0 13 GPIO_PULL_UP>; 
+        right-click-on-single-tap;
     };
 };
 
