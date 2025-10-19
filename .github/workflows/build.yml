@@ -1,6 +1,53 @@
+# name: Build ZMK firmware
+# on: [push, pull_request, workflow_dispatch]
+
+# jobs:
+#   build:
+#     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+
+
 name: Build ZMK firmware
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. 自身のキーボード設定リポジトリをチェックアウト
+      #    ZMK_CONFIG に利用するため 'config' フォルダに配置します。
+      - name: Checkout Config
+        uses: actions/checkout@v4
+        with:
+          path: config
+
+      # 2. 💡 必要な外部モジュール (zmk-input-gestures) をチェックアウト
+      #    このステップを追加することで、ビルドエラーが解消します。
+      - name: Checkout ZMK Input Gestures Module
+        uses: actions/checkout@v4
+        with:
+          repository: halfdane/zmk-input-gestures
+          path: zmk-input-gestures 
+
+      # 3. ZMK ファームウェアのビルドを実行
+      #    左右両方のファームウェアをビルドし、追加モジュールパスを正しく渡します。
+      - name: Build ZMK Firmware (Left/Right)
+        uses: zmkfirmware/zmk-build-action@v2
+        with:
+          # config (あなたのリポジトリ) と zmk-input-gestures の両方のパスを渡します
+          extra_modules: 'config;zmk-input-gestures' 
+          
+          # 元のビルドコマンドから設定を適用
+          build_args: >
+            -DSHIELD="split_ortho4x6_right split_ortho4x6_left" 
+            -DCONFIG_ZMK_STUDIO=y
+            
+          archive_name: firmware-split-ortho4x6
+
+      # 4. ビルドされたファームウェアを成果物としてアップロード
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-split-ortho4x6
+          path: firmware-split-ortho4x6.zip
+          retention-days: 7
