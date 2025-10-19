@@ -51,41 +51,41 @@
         };
     };
     
-    // トラックパッドの操作感を定義する入力プロセッサノード
+    // IQS7211Eトラックパッドの操作感をカスタマイズする入力プロセッサを定義
     trackpad_processor: trackpad_processor {
         compatible = "zmk,input-processor";
         status = "okay";
 
-        // ポインター速度を1.5倍に設定
+        // ポインターの移動速度を標準より速く (1.5倍)
         pointer-speed = <1.5>;
 
-        // スクロール速度を1.2倍に設定
+        // スクロールの速度を調整 (1.2倍)
         scroll-speed = <1.2>;
 
-        // macOSのような「自然な」スクロールを有効化
+        // macOSやスマートフォンのような「自然な」スクロールを有効化
         natural-scroll; 
         
-        // --- ジェスチャーのカスタマイズ ---
+        // --- ジェスチャーのカスタム割り当て ---
         
         // 2本指ジェスチャーの定義
         gestures {
             // 2本指クリックはデフォルトで右クリック
             two-finger-click = <&two_finger_click_right>;
-            // 2本指スワイプはデフォルトでスクロール/進む/戻る
         };
 
-        // 3本指ジェスチャーの定義
+        // 3本指ジェスチャーの定義 (例: Windows/macOSのタスク操作やレイヤー切り替え)
         three-finger-gestures {
-            // 3本指上スワイプをタスクビュー起動 (LG(TAB)やLG(LA(D))など) に割り当て
+            // 3本指上スワイプをタスクビュー起動 (Win+Tab) に割り当て
             three-finger-swipe-up = <&kp LG(TAB)>; 
-            // 3本指下スワイプをレイヤー切り替えなど (Mo(1)) に割り当て
+            // 3本指下スワイプをレイヤー1へのモーメンタリ切り替えに割り当て
             three-finger-swipe-down = <&mo 1>;
         };
 
-        // 4本指ジェスチャーの定義
+        // 4本指ジェスチャーの定義 (例: 仮想デスクトップ切り替え)
         four-finger-gestures {
-            // 4本指横スワイプを仮想デスクトップの切り替えに割り当て
+            // 4本指左スワイプを仮想デスクトップ左へ
             four-finger-swipe-left = <&kp LG(LEFT)>; 
+            // 4本指右スワイプを仮想デスクトップ右へ
             four-finger-swipe-right = <&kp LG(RIGHT)>;
         };
     };
@@ -96,7 +96,7 @@
     transform = <&default_transform>;
 };
 
-// トラックパッドの入力を入力プロセッサに紐付け
+// split_inputノードに定義したカスタムプロセッサを適用
 &trackpad_split {
     processor = <&trackpad_processor>;
 };
