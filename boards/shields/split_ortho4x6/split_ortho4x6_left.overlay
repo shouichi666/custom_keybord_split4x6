@@ -46,22 +46,22 @@
         compatible = "zmk,input-processor";
         status = "okay";
 
-        // ポインターの移動速度を標準より速く (1.5倍)
-        pointer-speed = <1.5>;
+        // // ポインターの移動速度を標準より速く (1.5倍)
+        // pointer-speed = <1.5>;
 
-        // スクロールの速度を調整 (1.2倍)
-        scroll-speed = <1.2>;
+        // // スクロールの速度を調整 (1.2倍)
+        // scroll-speed = <1.2>;
 
-        // macOSやスマートフォンのような「自然な」スクロールを有効化
-        natural-scroll; 
+        // // macOSやスマートフォンのような「自然な」スクロールを有効化
+        // natural-scroll; 
         
-        // --- ジェスチャーのカスタム割り当て ---
+        // // --- ジェスチャーのカスタム割り当て ---
         
-        // 2本指ジェスチャーの定義
-        gestures {
-            // 2本指クリックはデフォルトで右クリック
-            two-finger-click = <&two_finger_click_right>;
-        };
+        // // 2本指ジェスチャーの定義
+        // gestures {
+        //     // 2本指クリックはデフォルトで右クリック
+        //     two-finger-click = <&two_finger_click_right>;
+        // };
     };
 
     split_inputs {
