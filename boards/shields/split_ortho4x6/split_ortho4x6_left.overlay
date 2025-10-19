@@ -1,6 +1,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include <dt-bindings/zmk/keys.h> // ★複合キーコードの定義がない場合のため、念のためインクルード
 #include "layouts.dtsi"
 
 / {
@@ -73,20 +74,20 @@
             two-finger-click = <&two_finger_click_right>;
         };
 
-        // 3本指ジェスチャーの定義 (例: Windows/macOSのタスク操作やレイヤー切り替え)
+        // 3本指ジェスチャーの定義
         three-finger-gestures {
-            // 3本指上スワイプをタスクビュー起動 (Win+Tab) に割り当て
-            three-finger-swipe-up = <&kp LG(TAB)>; 
-            // 3本指下スワイプをレイヤー1へのモーメンタリ切り替えに割り当て
+            // ★LG(TAB)を標準で定義されているMUTEキーに置き換え (動作確認用)
+            three-finger-swipe-up = <&kp MUTE>; 
+            // 3本指下スワイプをレイヤー1へのモーメンタリ切り替え
             three-finger-swipe-down = <&mo 1>;
         };
 
-        // 4本指ジェスチャーの定義 (例: 仮想デスクトップ切り替え)
+        // 4本指ジェスチャーの定義
         four-finger-gestures {
-            // 4本指左スワイプを仮想デスクトップ左へ
-            four-finger-swipe-left = <&kp LG(LEFT)>; 
-            // 4本指右スワイプを仮想デスクトップ右へ
-            four-finger-swipe-right = <&kp LG(RIGHT)>;
+            // ★LG(LEFT)を標準で定義されているPREVキーに置き換え (動作確認用)
+            four-finger-swipe-left = <&kp PREV>; 
+            // ★LG(RIGHT)を標準で定義されているNEXTキーに置き換え (動作確認用)
+            four-finger-swipe-right = <&kp NEXT>;
         };
     };
 };
