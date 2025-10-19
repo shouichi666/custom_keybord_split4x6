@@ -70,9 +70,9 @@
                 &zip_scroll_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
                 &zip_scroll_scaler 1 32
                 // ★ Y軸スクロールを無効化 (0倍)
-                &zip_scroll_y_scaler 0 1 
+                &zip_scroll_y_scaler 1 1 
                 // ★ X軸スクロールを有効化 (1倍)
-                &zip_scroll_x_scaler 1 1
+                &zip_scroll_x_scaler 0 1
             >;
             process-next;
         };
