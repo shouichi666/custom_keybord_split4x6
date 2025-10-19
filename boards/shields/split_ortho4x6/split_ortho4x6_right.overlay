@@ -90,17 +90,17 @@
     };
 };
 
-/ {
-    input_processors {
-        zip_scroll_x_scaler: zip_scroll_x_scaler {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <2>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_HWHEEL>;
-            track-remainders;
-        };
-    };
-};
+// / {
+//     input_processors {
+//         zip_scroll_x_scaler: zip_scroll_x_scaler {
+//             compatible = "zmk,input-processor-scaler";
+//             #input-processor-cells = <2>;
+//             type = <INPUT_EV_REL>;
+//             codes = <INPUT_REL_HWHEEL>;
+//             track-remainders;
+//         };
+//     };
+// };
 
 &physical_layout0 {
     kscan = <&kscan0>;
