@@ -1,0 +1,20 @@
+#include <input/processors.dtsi>
+
+// ZMK Input Gestures がKconfigで有効化された際に生成されるノードに対して、
+// 必要な設定を追加します。
+// IQS7211eを使う場合は、絶対座標モードでのタップとスクロールが便利です。
+&zip_gestures {
+    status = "okay";
+    
+    // タップ検出を有効化（クリック）
+    tap-detection; 
+    
+    // 慣性カーソルを有効化（指を離した後も滑らかに動く）
+    inertial-cursor;
+    
+    // 円形スクロールを有効化（絶対座標モードが必要）
+    circular-scroll; 
+    
+    // ジェスチャー認識に少し時間がかかる場合、タップタイムを延長します
+    tap-time-threshold-ms = <150>;
+};
