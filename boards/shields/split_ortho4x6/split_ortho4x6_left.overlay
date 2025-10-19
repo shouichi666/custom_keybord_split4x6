@@ -73,22 +73,6 @@
             // 2本指クリックはデフォルトで右クリック
             two-finger-click = <&two_finger_click_right>;
         };
-
-        // 3本指ジェスチャーの定義 (レイヤー操作に限定 - ビルド安全性を最優先)
-        three-finger-gestures {
-            // 3本指上スワイプをレイヤー1へ一時的に切り替え (Mo 1)
-            three-finger-swipe-up = <&mo 1>; 
-            // 3本指下スワイプをレイヤー2へ一時的に切り替え (Mo 2)
-            three-finger-swipe-down = <&mo 2>;
-        };
-
-        // 4本指ジェスチャーの定義 (レイヤー操作に限定 - ビルド安全性を最優先)
-        four-finger-gestures {
-            // 4本指左スワイプをレイヤー3へ永続的に切り替え (To 3)
-            four-finger-swipe-left = <&to 3>; 
-            // 4本指右スワイプをベースレイヤー(0)へ永続的に切り替え (To 0)
-            four-finger-swipe-right = <&to 0>;
-        };
     };
 };
 
