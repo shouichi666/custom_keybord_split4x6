@@ -11,6 +11,8 @@
         20 // &mkp MB2
         21 // &mkp MB1
         22 // &mo 5
+        42 // &kp LG(W) (Layer 4) - 3段目6列目
+        43 // &kp LG(LEFT_ARROW) (Layer 4) - 3段目7列目
     >;
 };
 
