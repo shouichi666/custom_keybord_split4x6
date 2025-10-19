@@ -3,3 +3,30 @@
 #include <dt-bindings/zmk/keys.h>
 
 #include "../../../config/keymap.keymap"
+
+/ {
+    // 既存のキーマップ定義を上書き、または新しいレイヤーを追加
+    keymap {
+        compatible = "zmk,keymap";
+
+        // base_layer またはジェスチャーを使いたいレイヤーに追記
+        // (キーマップファイル全体をこちらに移動する場合の例)
+        
+        default_layer {
+            bindings = <
+                // ... (既存のキーバインド) ...
+
+                // 定義した2本指ジェスチャーの割り当て例
+                // ZMK_GESTURE_SCROLL_UP は、ZMK_GESTURE_SCROLL_UPイベントが発生したときに動作します。
+                ZMK_GESTURE_SCROLL_UP     KC_PGUP
+                ZMK_GESTURE_SCROLL_DOWN   KC_PGDN
+                ZMK_GESTURE_SWIPE_LEFT    &mo 3 // 例: レイヤー3にモーメンタリに切り替える
+                ZMK_GESTURE_SWIPE_RIGHT   &tog 4 // 例: レイヤー4にトグルで切り替える
+
+                // ... (既存のキーバインド) ...
+            >;
+        };
+
+        // ... 他のレイヤー定義 ...
+    };
+};
