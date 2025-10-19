@@ -59,19 +59,18 @@
         
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-            &zip_temp_layer 4 1000000
-            &zip_xy_scaler 2 2
+            &zip_temp_layer 4 10000
+            &zip_xy_scaler 2 3
         >;
 
         scroller {
             layers = <5>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
-                &zip_scroll_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
+                &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
                 &zip_scroll_scaler 1 32
             >;
             process-next;
-            // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
         };
     };
 
@@ -87,6 +86,18 @@
         compatible = "zmk,input-listener";
         device = <&trackpad_split>;   
         status = "okay";
+    };
+};
+
+/ {
+    input_processors {
+        zip_scroll_x_scaler: zip_scroll_x_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
     };
 };
 

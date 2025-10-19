@@ -41,31 +41,7 @@
 			,<&akdk_d 4 GPIO_ACTIVE_HIGH>
             ;
     };
-    
-    // trackpad_listener: trackpad_listener {
-    //     compatible = "zmk,input-listener";
-    //     device = <&trackpad>;
 
-    //     /* 一旦 zip_touch_finger_router は削除する */
-    //     // input-processors = <&zip_touch_finger_router>;
-
-    //     /* カーソル操作のみ（XY反転や速度調整可） */
-    //     input-processors = <
-    //         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-    //         &zip_xy_scaler 2 2
-    //     >;「」
-
-    //     /* スクロールモードは将来的に別レイヤーやジェスチャーで切替 */
-    //     scroller {
-    //         layers = <5>;
-    //         input-processors = <
-    //             &zip_xy_to_scroll_mapper,
-    //             &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT),
-    //             &zip_scroll_scaler 1 256
-    //         >;
-    //         process-next;
-    //     };
-    // };
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
