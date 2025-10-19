@@ -1,7 +1,7 @@
+
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include "layouts.dtsi"
 
 &zip_temp_layer {
@@ -25,11 +25,11 @@
         rows = <4>;
         map = <
             RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6) RC(0,7) RC(0,8) RC(0,9) RC(0,10) RC(0,11)
-            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,6) RC(1,7) RC(1,8) RC(1,9) RC(1,10) RC(1,11)
-            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11)
-            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(3,6) RC(3,7) RC(3,11)
+			RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,6) RC(1,7) RC(1,8) RC(1,9) RC(1,10) RC(1,11)
+			RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11)
+			RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(3,6) RC(3,7) RC(3,11)
         >;
-        col-offset = <6>;
+		col-offset = <6>;
     };
 
     kscan0: kscan {
@@ -39,17 +39,17 @@
         diode-direction = "col2row";
         row-gpios
             = <&akdk_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ,<&akdk_d 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ,<&akdk_d 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ,<&akdk_d 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			,<&akdk_d 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			,<&akdk_d 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			,<&akdk_d 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
         col-gpios
             = <&akdk_d 13 GPIO_ACTIVE_HIGH>
-            ,<&akdk_d 12 GPIO_ACTIVE_HIGH>
-            ,<&akdk_d 11 GPIO_ACTIVE_HIGH>
-            ,<&akdk_d 5 GPIO_ACTIVE_HIGH>
-            ,<&akdk_d 4 GPIO_ACTIVE_HIGH>
-            ,<&akdk_d 3 GPIO_ACTIVE_HIGH>
+			,<&akdk_d 12 GPIO_ACTIVE_HIGH>
+			,<&akdk_d 11 GPIO_ACTIVE_HIGH>
+			,<&akdk_d 5 GPIO_ACTIVE_HIGH>
+			,<&akdk_d 4 GPIO_ACTIVE_HIGH>
+			,<&akdk_d 3 GPIO_ACTIVE_HIGH>
             ;
     };
 
@@ -60,21 +60,18 @@
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
             &zip_temp_layer 4 1000000
-            &zip_xy_scaler 2 3
+            &zip_xy_scaler 2 2
         >;
 
         scroller {
             layers = <5>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
-                &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)
+                &zip_scroll_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
                 &zip_scroll_scaler 1 32
-                // ★ Y軸スクロールを無効化 (0倍)
-                &zip_scroll_y_scaler 1 32
-                // ★ X軸スクロールを有効化 (1倍)
-                &zip_scroll_x_scaler 0 1
             >;
             process-next;
+            // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
         };
     };
 
@@ -117,28 +114,6 @@
     };
 };
 
-/ {
-    input_processors {
-        // ★★★ 必要な定義を追加: Y軸スクロールスケーラー ★★★
-        zip_scroll_y_scaler: zip_scroll_y_scaler {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <2>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_WHEEL>; // 縦スクロールイベント (Y軸) を対象
-            track-remainders;
-        };
-
-        // 既存のX軸スケーラー定義
-        zip_scroll_x_scaler: zip_scroll_x_scaler {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <2>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_HWHEEL>; // 横スクロールイベント (X軸) を対象
-            track-remainders;
-        };
-    };
-};
-
 &spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
@@ -155,3 +130,4 @@
         irq-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
     };
 };
+
