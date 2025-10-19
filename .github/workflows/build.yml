@@ -5,49 +5,58 @@
 #   build:
 #     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
 
-
 name: Build ZMK firmware
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       # 1. 自身のキーボード設定リポジトリをチェックアウト
-      #    ZMK_CONFIG に利用するため 'config' フォルダに配置します。
+      #    ZMK_CONFIG に利用するため 'config' フォルダに配置
       - name: Checkout Config
         uses: actions/checkout@v4
         with:
           path: config
 
       # 2. 💡 必要な外部モジュール (zmk-input-gestures) をチェックアウト
-      #    このステップを追加することで、ビルドエラーが解消します。
+      #    extra_modules でパスを指定するため、ルートに配置
       - name: Checkout ZMK Input Gestures Module
         uses: actions/checkout@v4
         with:
           repository: halfdane/zmk-input-gestures
-          path: zmk-input-gestures 
+          path: zmk-input-gestures
 
-      # 3. ZMK ファームウェアのビルドを実行
-      #    左右両方のファームウェアをビルドし、追加モジュールパスを正しく渡します。
-      - name: Build ZMK Firmware (Left/Right)
-        uses: zmkfirmware/zmk-build-action@v2
-        with:
-          # config (あなたのリポジトリ) と zmk-input-gestures の両方のパスを渡します
-          extra_modules: 'config;zmk-input-gestures' 
-          
-          # 元のビルドコマンドから設定を適用
-          build_args: >
-            -DSHIELD="split_ortho4x6_right split_ortho4x6_left" 
+      # 3. ZMK公式リポジトリをチェックアウトし、ビルド環境をセットアップ
+      - name: Set up ZMK and Toolchain
+        uses: zmkfirmware/setup-zmk@v2
+
+      # 4. ZMKモジュールを初期化・更新
+      - name: West Init/Update
+        run: |
+          west init -l zmk/app
+          west update
+
+      # 5. ZMK ファームウェアのビルドを実行
+      - name: West Build Firmware
+        run: |
+          # 左右両方のシールドをビルドするため、スペース区切りで指定
+          # ZMK_EXTRA_MODULES には、 config と zmk-input-gestures の両方のパスを ; 区切りで渡す
+          west build -s zmk/app -b akdk_bt1 -- \
+            -DSHIELD="split_ortho4x6_right split_ortho4x6_left" \
+            -DZMK_CONFIG=config \
+            -DZMK_EXTRA_MODULES="zmk-input-gestures" \
             -DCONFIG_ZMK_STUDIO=y
-            
-          archive_name: firmware-split-ortho4x6
 
-      # 4. ビルドされたファームウェアを成果物としてアップロード
-      - name: Upload Artifact
+      # 6. ビルドされたファームウェアを成果物としてアップロード
+      - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
           name: firmware-split-ortho4x6
-          path: firmware-split-ortho4x6.zip
+          # UF2ファイルを探して圧縮する
+          path: |
+            build/zephyr/*.uf2
+            build_split_ortho4x6_left/zephyr/*.uf2
+            build_split_ortho4x6_right/zephyr/*.uf2
           retention-days: 7
