@@ -43,6 +43,7 @@
     };
 
     trackpad_listener: trackpad_listener {
+        compatible = "zmk,input-listener"
         device = <&trackpad>;
         input-processors = <
             &zip_xy_scaler 2 3
@@ -54,15 +55,6 @@
             input-processors = <&zip_xy_to_scroll_mapper>;
         };
     };
-
-    // &trackpad_listener {
-    //     input-processors = <&zip_xy_scaler 3 2>;
-
-    //     scroller {
-    //         layers = <1>;
-    //         input-processors = <&zip_xy_to_scroll_mapper>;
-    //     };
-    // }
 
     split_inputs {
         #address-cells = <1>;
