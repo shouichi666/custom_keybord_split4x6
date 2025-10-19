@@ -1,7 +1,6 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/input_gestures.h>
 
 #include "../../../config/keymap.keymap"
 
