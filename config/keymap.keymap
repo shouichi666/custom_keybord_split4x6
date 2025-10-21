@@ -20,15 +20,34 @@
         };
     };
 
+    behaviors {
+        behaviorHoldTap180: behaviorHoldTap180 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BEHAVIORHOLDTAP180";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            require-prior-idle-ms = <0>;
+            tapping-term-ms = <180>;
+        };
+
+        behaviorTapDance1: behaviorTapDance1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BEHAVIORTAPDANCE1";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_1>, <&kp ENTER>, <&mo 1>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         layer_0 {
             bindings = <
-&kp Q      &kp W     &kp E             &kp R  &kp T                   &mo 6      &kp EQUAL  &kp Y        &kp U  &kp I      &kp O       &kp P
-&kp A      &kp S     &kp D             &kp F  &kp G                              &kp MINUS  &kp H        &kp J  &kp K      &kp L       &kp BSPC
-&kp Z      &kp X     &kp C             &kp V  &kp B                                         &kp N        &kp M  &kp COMMA  &kp PERIOD  &kp TAB
-&kp LSHFT  &kp LALT  &kp LEFT_CONTROL  &mo 2  &mt LEFT_COMMAND LANG2  &kp SPACE  &kp ENTER  &lt 1 LANG1                                &mt RIGHT_SHIFT ESCAPE
+&kp Q             &kp W     &kp E             &kp R  &kp T                   &mo 6      &kp EQUAL  &kp Y               &kp U  &kp I      &kp O       &kp P
+&kp A             &kp S     &kp D             &kp F  &kp G                              &kp MINUS  &kp H               &kp J  &kp K      &kp L       &kp BSPC
+&mt Z LEFT_SHIFT  &kp X     &kp C             &kp V  &kp B                                         &kp N               &kp M  &kp COMMA  &kp PERIOD  &mt LEFT_SHIFT TAB
+&kp LSHFT         &kp LALT  &kp LEFT_CONTROL  &mo 2  &mt LEFT_COMMAND LANG2  &kp SPACE  &kp ENTER  &behaviorTapDance1                                &mt RIGHT_SHIFT ESCAPE
             >;
         };
 
