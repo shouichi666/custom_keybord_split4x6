@@ -7,7 +7,7 @@
     require-prior-idle-ms = <200>;
     // excluded-positions のコメントを解除し、キー位置を設定
     excluded-positions = <
-        19
+        // 19
         20 // &mkp MB2
         21 // &mkp MB1
         22 // &mo 5
@@ -99,7 +99,7 @@
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
-                &zip_scroll_scaler 1 30
+                &zip_scroll_scaler 1 50
             >;
             process-next;
         };
