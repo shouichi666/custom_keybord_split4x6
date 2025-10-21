@@ -42,27 +42,6 @@
             ;
     };
 
-    // trackpad_split_listener: trackpad_split_listener {
-    //     compatible = "zmk,input-listener";
-    //     device = <&trackpad_split>;   
-    //     status = "okay";
-
-    //     input-processors = <
-    //         &zip_xy_scaler 20 30 // 例: 感度調整
-    //         &zip_temp_layer 4 10000 // 例: オートレイヤー切り替え
-    //     >;
-
-    //     scroller {
-    //         layers = <5>;
-    //         input-processors = <
-    //             &zip_xy_to_scroll_mapper
-    //             &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
-    //             &zip_scroll_scaler 1 70
-    //         >;
-    //         process-next;
-    //     };
-    // };
-
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
@@ -114,17 +93,3 @@
         irq-gpios = <&gpio0 13 GPIO_PULL_UP>; 
     };
 };
-
-
-// / {
-//     // スクロールプロセッサを定義し、トラックパッドデバイスを参照させる
-//     scroll_processor: scroll_processor {
-//         compatible = "zmk,pointer-scroll-processor";
-        
-//         // トラックパッドのデバイスノードをここで指定する
-//         device = <&trackpad>; 
-        
-//         // レイヤー5がアクティブなときのみスクロールを有効にする
-//         layer-enable-keys = <5>; 
-//     };
-// };
