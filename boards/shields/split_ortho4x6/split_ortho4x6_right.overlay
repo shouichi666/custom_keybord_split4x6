@@ -90,7 +90,7 @@
         status = "okay";
 
         input-processors = <
-            &zip_xy_to_scroll_mapper,                 /* XY → スクロール変換 */
+            &zip_xy_to_scroll_mapper                 /* XY → スクロール変換 */
         >;
             // &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT), /* スクロール方向調整（Y反転） */
             // &zip_scroll_scaler 1 50                   /* スクロール速度 */
