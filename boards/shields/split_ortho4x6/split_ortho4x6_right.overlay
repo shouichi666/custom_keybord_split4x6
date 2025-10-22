@@ -7,6 +7,7 @@
     require-prior-idle-ms = <200>;
     // excluded-positions のコメントを解除し、キー位置を設定
     excluded-positions = <
+        19
         20 // &mkp MB2
         21 // &mkp MB1
         22 // &mo 5
