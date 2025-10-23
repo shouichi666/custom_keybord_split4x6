@@ -81,10 +81,10 @@
 
         layer_2 {
             bindings = <
-&trans     &trans  &kp LC(UP_ARROW)        &kp LC(DOWN_ARROW)       &trans  &trans  &trans  &kp SLASH   &kp N7        &kp N8        &kp N9        &kp ASTERISK
-&trans     &trans  &kp LC(LEFT_ARROW)      &kp LC(RIGHT_ARROW)      &trans          &trans  &kp PERIOD  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans
-&kp LG(Z)  &trans  &kp LG(LA(LEFT_ARROW))  &kp LA(LG(RIGHT_ARROW))  &trans                  &kp N0      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
-&trans     &trans  &trans                  &trans                   &trans  &trans  &trans  &trans                                                &trans
+&kp Q      &kp LG(W)           &kp LC(UP_ARROW)        &kp LG(R)                &trans  &trans  &trans  &kp SLASH   &kp N7        &kp N8        &kp N9        &kp ASTERISK
+&trans     &kp LC(LEFT_ARROW)  &kp LC(DOWN_ARROW)      &kp LC(RIGHT_ARROW)      &trans          &trans  &kp PERIOD  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans
+&kp LG(Z)  &trans              &kp LG(LA(LEFT_ARROW))  &kp LA(LG(RIGHT_ARROW))  &trans                  &kp N0      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
+&trans     &trans              &trans                  &trans                   &trans  &trans  &trans  &trans                                                &trans
             >;
         };
 
