@@ -63,30 +63,13 @@
             &zip_x_scaler 4 4
             &zip_y_scaler 11 11
         >;
-
-        // gesture_operation {
-        //     layers = <2>; // &mo 2 でアクティブ
-        //     // トラックボールの動きをCtrl+矢印キーにマッピング
-        //     input-processors = <
-        //         // トラックボールの動きを方向キーバインディングに変換
-        //         &zip_gestures
-        //     >;
-        //     // トラックボールを動かしたときに出力する動作を定義
-        //     bindings = <
-        //         &kp LC(UP)
-        //         &kp LC(DOWN)
-        //         &kp LC(LEFT)
-        //         &kp LC(RIGHT)
-        //     >;
-        //     process-next;
-        // };
-
+        
         scroller {
             layers = <5>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
-                &zip_scroll_scaler 1 30
+                &zip_scroll_scaler 1 27
             >;
             process-next;
         };
