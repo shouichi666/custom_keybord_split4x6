@@ -103,13 +103,19 @@
 
         gesture_operation {
             layers = <1>;
-            input-processors = < &input_gestures >;
+            input-processors = < &zip_gestures >;
             bindings = <
-                &macro_ctrl_up
-                &macro_ctrl_down
-                &macro_ctrl_left
-                &macro_ctrl_right
+                &kp LC(UP)          // ✅ 直接キーコードを指定
+                &kp LC(DOWN)        
+                &kp LC(LEFT)        
+                &kp LC(RIGHT)
             >;
+            // bindings = <
+            //     &macro_ctrl_up
+            //     &macro_ctrl_down
+            //     &macro_ctrl_left
+            //     &macro_ctrl_right
+            // >;
 
             process-next;
         };
