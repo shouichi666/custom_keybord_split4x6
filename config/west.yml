@@ -6,8 +6,6 @@ manifest:
       url-base: https://github.com/sekigon-gonnoc
     - name: halfdane # ★ 追加: zmk-input-gestures 用のリモート
       url-base: https://github.com/halfdane
-    - name: github # <--- Define the 'github' remote
-      url-base: https://github.com/ # <--- Base URL for all GitHub projects
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -21,10 +19,5 @@ manifest:
     - name: zmk-input-gestures # ★ 追加: ジェスチャーモジュール
       remote: halfdane
       revision: main
-    - name: zmk-mouse-gesture
-      remote: github
-      repo-path: kot149/zmk-mouse-gesture # リポジトリのパス
-      revision: main # 使用したいブランチまたはコミットID
-      path: modules/zmk/zmk-mouse-gesture # モジュールを置く場所
   self:
     path: config
