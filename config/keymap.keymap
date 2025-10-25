@@ -65,7 +65,7 @@
             bindings = <
 &kp Q                             &kp W     &kp E             &kp R                          &kp T                   &behaviorHoldTap180 6 Z  &kp LA(LG(RIGHT_ARROW))                &kp Y                             &kp U  &kp I      &kp O       &kp P
 &kp A                             &kp S     &kp D             &kp F                          &kp G                                            &kp LA(LG(RIGHT_ARROW))                &kp H                             &kp J  &kp K      &kp L       &kp BACKSPACE
-&behaviorHoldTap150 LEFT_SHIFT Z  &kp X     &kp C             &kp V                          &kp B                                                                                   &kp N                             &kp M  &kp COMMA  &kp PERIOD  &kp TAB
+&behaviorHoldTapTap LEFT_SHIFT Z  &kp X     &kp C             &kp V                          &kp B                                                                                   &kp N                             &kp M  &kp COMMA  &kp PERIOD  &kp TAB
 &kp LEFT_SHIFT                    &kp LALT  &kp LEFT_CONTROL  &behaviorHoldTap180 2 LC(ESC)  &mt LEFT_COMMAND LANG2  &kp SPACE                &behaviorHoldTap150 RIGHT_SHIFT ENTER  &behaviorHoldTap180 1 LANGUAGE_1                                &kp ESCAPE
             >;
         };
