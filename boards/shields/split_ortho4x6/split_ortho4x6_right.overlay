@@ -89,6 +89,7 @@
         device = <&trackpad_split>;   
         status = "okay";
 
+        // スクロール用
         // input-processors = <
         //     &zip_xy_to_scroll_mapper                 /* XY → スクロール変換 */
         //     &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT) /* スクロール方向調整（Y反転） */
@@ -96,29 +97,43 @@
         // >;
 
         input-processors = <
-            &zip_temp_layer 4 10000
-            &zip_x_scaler 30 21
-            &zip_y_scaler 30 21
+            &zip_gestures // トラックパッドの動きをジェスチャーとして検知するビヘイビア
         >;
 
-        gesture_operation {
-            layers = <1>;
-            input-processors = < &zip_gestures >;
-            bindings = <
-                &kp LC(UP)
-                &kp LC(DOWN)        
-                &kp LC(LEFT)        
-                &kp LC(RIGHT)
-            >;
-            // bindings = <
-            //     &macro_ctrl_up
-            //     &macro_ctrl_down
-            //     &macro_ctrl_left
-            //     &macro_ctrl_right
-            // >;
+        // ⭐ bindings を直接 trackpad_split_listener の下に移動
+        //    (gesture_operationノードは不要になる)
+        bindings = <
+            &kp LC(UP)          // 上方向の動きを Ctrl + ↑ に
+            &kp LC(DOWN)        // 下方向の動きを Ctrl + ↓ に
+            &kp LC(LEFT)        // 左方向の動きを Ctrl + ← に
+            &kp LC(RIGHT)       // 右方向の動きを Ctrl + → に
+        >;
 
-            process-next;
-        };
+
+        // input-processors = <
+        //     &zip_temp_layer 4 10000
+        //     &zip_x_scaler 30 21
+        //     &zip_y_scaler 30 21
+        // >;
+
+        // gesture_operation {
+        //     layers = <1>;
+        //     input-processors = < &zip_gestures >;
+        //     bindings = <
+        //         &kp LC(UP)
+        //         &kp LC(DOWN)        
+        //         &kp LC(LEFT)        
+        //         &kp LC(RIGHT)
+        //     >;
+        //     // bindings = <
+        //     //     &macro_ctrl_up
+        //     //     &macro_ctrl_down
+        //     //     &macro_ctrl_left
+        //     //     &macro_ctrl_right
+        //     // >;
+
+        //     process-next;
+        // };
 
         scroller {
             layers = <5>;
