@@ -152,25 +152,6 @@
     };
 };
 
-// --- スワイプで送るマクロの定義 ---
-/ {
-    behaviors {
-        macro_swipe_left: macro_swipe_left {
-            compatible = "zmk,behavior-macro";
-            label = "SWIPE_LEFT_MACRO";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LEFT)>;
-        };
-
-        macro_swipe_right: macro_swipe_right {
-            compatible = "zmk,behavior-macro";
-            label = "SWIPE_RIGHT_MACRO";
-            #binding-cells = <0>;
-            bindings = <&kp LC(RIGHT)>;
-        };
-    };
-};
-
 &spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
