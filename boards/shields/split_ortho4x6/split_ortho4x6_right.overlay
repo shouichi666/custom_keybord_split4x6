@@ -102,10 +102,8 @@
         >;
 
         gesture_operation {
-            layers = <1>; // レイヤー1で有効にする
-            input-processors = < &zip_gestures >;
-
-            // 各ジェスチャーに割り当てるキー操作
+            layers = <1>;
+            input-processors = < &input_gestures >;
             bindings = <
                 &macro_ctrl_up
                 &macro_ctrl_down
