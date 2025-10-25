@@ -65,7 +65,7 @@
         >;
 
         scroller {
-            layers = <5>;
+            layers = <5 2>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
@@ -101,20 +101,20 @@
             &zip_y_scaler 30 21
         >;
 
-        gesture_operation {
-            layers = <1>; // レイヤー1で有効にする
-            input-processors = < &zip_gestures >;
+        // gesture_operation {
+        //     layers = <1>; // レイヤー1で有効にする
+        //     input-processors = < &zip_gestures >;
 
-            // 各ジェスチャーに割り当てるキー操作
-            bindings = <
-                &macro_swipe_left
-                &none
-                &macro_swipe_right
-                &none
-            >;
+        //     // 各ジェスチャーに割り当てるキー操作
+        //     bindings = <
+        //         &macro_swipe_left
+        //         &none
+        //         &macro_swipe_right
+        //         &none
+        //     >;
 
-            process-next;
-        };
+        //     process-next;
+        // };
 
         scroller {
             layers = <5>;
@@ -168,4 +168,3 @@
         irq-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
     };
 };
-
