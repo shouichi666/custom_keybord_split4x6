@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/sekigon-gonnoc
     - name: halfdane # ★ 追加: zmk-input-gestures 用のリモート
       url-base: https://github.com/halfdane
+    - name: github # <--- Define the 'github' remote
+      url-base: https://github.com/ # <--- Base URL for all GitHub projects
   projects:
     - name: zmk
       remote: zmkfirmware
