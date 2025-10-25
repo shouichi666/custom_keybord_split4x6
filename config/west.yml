@@ -19,7 +19,7 @@ manifest:
     - name: zmk-input-gestures # ★ 追加: ジェスチャーモジュール
       remote: halfdane
       revision: main
-  - name: zmk-mouse-gesture
+    - name: zmk-mouse-gesture
       remote: github
       repo-path: kot149/zmk-mouse-gesture # リポジトリのパス
       revision: main # 使用したいブランチまたはコミットID
