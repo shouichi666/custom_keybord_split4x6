@@ -21,16 +21,30 @@
     };
 
     behaviors {
-        macro_swipe_left: macro_swipe_left {
+        macro_ctrl_up: macro_ctrl_up {
             compatible = "zmk,behavior-macro";
-            label = "SWIPE_LEFT_MACRO";
+            label = "CTRL_UP";
+            #binding-cells = <0>;
+            bindings = <&kp LC(UP)>;
+        };
+
+        macro_ctrl_down: macro_ctrl_down {
+            compatible = "zmk,behavior-macro";
+            label = "CTRL_DOWN";
+            #binding-cells = <0>;
+            bindings = <&kp LC(DOWN)>;
+        };
+
+        macro_ctrl_left: macro_ctrl_left {
+            compatible = "zmk,behavior-macro";
+            label = "CTRL_LEFT";
             #binding-cells = <0>;
             bindings = <&kp LC(LEFT)>;
         };
 
-        macro_swipe_right: macro_swipe_right {
+        macro_ctrl_right: macro_ctrl_right {
             compatible = "zmk,behavior-macro";
-            label = "SWIPE_RIGHT_MACRO";
+            label = "CTRL_RIGHT";
             #binding-cells = <0>;
             bindings = <&kp LC(RIGHT)>;
         };

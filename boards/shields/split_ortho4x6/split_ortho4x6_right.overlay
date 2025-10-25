@@ -101,20 +101,20 @@
             &zip_y_scaler 30 21
         >;
 
-        // gesture_operation {
-        //     layers = <1>; // レイヤー1で有効にする
-        //     input-processors = < &zip_gestures >;
+        gesture_operation {
+            layers = <1>; // レイヤー1で有効にする
+            input-processors = < &zip_gestures >;
 
-        //     // 各ジェスチャーに割り当てるキー操作
-        //     bindings = <
-        //         &macro_swipe_left
-        //         &none
-        //         &macro_swipe_right
-        //         &none
-        //     >;
+            // 各ジェスチャーに割り当てるキー操作
+            bindings = <
+                &macro_ctrl_up
+                &macro_ctrl_down
+                &macro_ctrl_left
+                &macro_ctrl_right
+            >;
 
-        //     process-next;
-        // };
+            process-next;
+        };
 
         scroller {
             layers = <5>;
