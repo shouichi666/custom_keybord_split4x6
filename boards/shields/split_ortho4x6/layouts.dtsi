@@ -49,5 +49,11 @@
 			,<&key_physical_attrs 100 100 1550 350 0 0 0>
             ;
     };
+
+	zip_gestures: zip_gestures {
+		compatible = "zmk,input-processor-gesture"; // 実際のcompatible名を確認
+		// ... その他の設定 ...
+		#input-processor-cells = <0>;
+	};
 };
     
