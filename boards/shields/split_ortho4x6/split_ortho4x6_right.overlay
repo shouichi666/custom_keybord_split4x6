@@ -73,6 +73,18 @@
             >;
             process-next;
         };
+
+        gesture_mode {
+            layers = <3>; // レイヤー3でジェスチャーを動作させる
+            input-processors = < &zip_gestures >; // ジェスチャープロセッサを使用
+            bindings = <
+                &kp LG(UP)    // 上ジェスチャー: Win+Up
+                &kp LG(DOWN)  // 下ジェスチャー: Win+Down
+                &kp LG(LEFT)  // 左ジェスチャー: Win+Left
+                &kp LG(RIGHT) // 右ジェスチャー: Win+Right
+            >;
+            process-next; // 処理を次のプロセッサ（通常はスキップ）へ渡す
+        };
     };
 
     split_inputs {
