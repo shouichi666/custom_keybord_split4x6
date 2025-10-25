@@ -69,7 +69,8 @@
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
-                &zip_scroll_scaler 28 28
+                &zip_scroll_scaler 1 18
+                &zip_scroll_velocity_curve 100 100
             >;
             process-next;
         };
@@ -94,6 +95,7 @@
             &zip_xy_to_scroll_mapper                 /* XY → スクロール変換 */
             &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT) /* スクロール方向調整（Y反転） */
             &zip_scroll_scaler 5 22                  /* スクロール速度 */
+            &zip_scroll_velocity_curve 100 100
         >;
 
         // 通常のカースル操作用
