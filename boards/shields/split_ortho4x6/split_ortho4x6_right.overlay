@@ -108,13 +108,11 @@
             input-processors = <
                 &zip_gestures // トラックパッドの動きをジェスチャーとして検知するビヘイビア
             >;
-            // ジェスチャーの方向（上、下、左、右）に対応するキーバインディング
-            // 例: MacのMission ControlやSpaces操作に利用されるCtrl+矢印キー
             bindings = <
-                &kp LC(UP)          
-                &kp LC(DOWN)        
-                &kp LC(LEFT)        
-                &kp LC(RIGHT)  
+                &kp LC(20)
+                &kp LC(21)
+                &kp LC(22)
+                &kp LC(23)  
             >;
             process-next;
         };
