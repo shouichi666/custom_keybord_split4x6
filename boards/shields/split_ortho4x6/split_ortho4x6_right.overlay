@@ -105,7 +105,7 @@
             layers = <1>;
             input-processors = < &zip_gestures >;
             bindings = <
-                &kp LC(UP)          // ✅ 直接キーコードを指定
+                &kp LC(UP)
                 &kp LC(DOWN)        
                 &kp LC(LEFT)        
                 &kp LC(RIGHT)
