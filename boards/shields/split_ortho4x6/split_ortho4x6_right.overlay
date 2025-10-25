@@ -83,10 +83,10 @@
             >;
 
             bindings = <
-                &kp UP     /* ↑キー */
-                &kp DOWN   /* ↓キー */
-                &kp LEFT   /* ←キー */
-                &kp RIGHT  /* →キー */
+                &behavior_kp_up
+                &behavior_kp_down
+                &behavior_kp_left
+                &behavior_kp_right
             >;
             process-next;
         };
