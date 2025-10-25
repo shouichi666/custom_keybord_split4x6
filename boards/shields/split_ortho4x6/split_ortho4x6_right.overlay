@@ -103,21 +103,19 @@
 
         // ⭐ 2. ジェスチャー操作ブロック (レイヤー2で有効)
         gesture_operation {
-            layers = <2>; // &mo 2などでレイヤー2が有効な時に動作
-            
+            layers = <1>;
+
             input-processors = <
                 &zip_gestures // トラックパッドの動きをジェスチャーとして検知するビヘイビア
             >;
-            
             // ジェスチャーの方向（上、下、左、右）に対応するキーバインディング
             // 例: MacのMission ControlやSpaces操作に利用されるCtrl+矢印キー
             bindings = <
-                &kp LC(UP)          // 上方向のジェスチャー: Ctrl + ↑
-                &kp LC(DOWN)        // 下方向のジェスチャー: Ctrl + ↓
-                &kp LC(LEFT)        // 左方向のジェスチャー: Ctrl + ←
-                &kp LC(RIGHT)       // 右方向のジェスチャー: Ctrl + →
+                &kp LC(UP)          
+                &kp LC(DOWN)        
+                &kp LC(LEFT)        
+                &kp LC(RIGHT)  
             >;
-            
             process-next;
         };
 
