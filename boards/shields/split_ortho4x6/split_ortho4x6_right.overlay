@@ -159,14 +159,14 @@
             compatible = "zmk,behavior-macro";
             label = "SWIPE_LEFT_MACRO";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LC(LEFT) &macro_release &kp LC(LEFT)>;
+            bindings = <&kp LC(LEFT)>;
         };
 
         macro_swipe_right: macro_swipe_right {
             compatible = "zmk,behavior-macro";
             label = "SWIPE_RIGHT_MACRO";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LC(RIGHT) &macro_release &kp LC(RIGHT)>;
+            bindings = <&kp LC(RIGHT)>;
         };
     };
 };
