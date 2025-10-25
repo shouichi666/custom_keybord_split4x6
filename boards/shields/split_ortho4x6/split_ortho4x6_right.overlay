@@ -90,11 +90,11 @@
         status = "okay";
 
         // スクロール用(カーソル操作はできない) 
-        // input-processors = <
-        //     &zip_xy_to_scroll_mapper                 /* XY → スクロール変換 */
-        //     &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT) /* スクロール方向調整（Y反転） */
-        //     &zip_scroll_scaler 1 22                  /* スクロール速度 */
-        // >;
+        input-processors = <
+            &zip_xy_to_scroll_mapper                 /* XY → スクロール変換 */
+            &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT) /* スクロール方向調整（Y反転） */
+            &zip_scroll_scaler 1 22                  /* スクロール速度 */
+        >;
 
         // 通常のカースル操作用
         // input-processors = <
@@ -103,17 +103,17 @@
         //     &zip_y_scaler 30 21
         // >;
 
-        input-processors = <
-            &zip_gestures
-        >;
 
-        bindings = <
-            &kp LC(UP)
-            &kp LC(DOWN)
-            &kp LC(LEFT)
-            &kp LC(RIGHT)
-        >;
-
+        // ジェスチャー操作の試作中
+        // input-processors = <
+        //     &zip_gestures
+        // >;
+        // bindings = <
+        //     &kp LC(UP)
+        //     &kp LC(DOWN)
+        //     &kp LC(LEFT)
+        //     &kp LC(RIGHT)
+        // >;
         // gesture_operation {
         //     layers = <1>;
         //     input-processors = < &zip_gestures >;
@@ -129,7 +129,6 @@
         //     //     &macro_ctrl_left
         //     //     &macro_ctrl_right
         //     // >;
-
         //     process-next;
         // };
 
