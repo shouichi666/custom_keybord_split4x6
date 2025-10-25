@@ -97,16 +97,14 @@
         // >;
 
         input-processors = <
-            &zip_gestures // トラックパッドの動きをジェスチャーとして検知するビヘイビア
+            &zip_gestures
         >;
 
-        // ⭐ bindings を直接 trackpad_split_listener の下に移動
-        //    (gesture_operationノードは不要になる)
         bindings = <
-            &kp LC(UP)          // 上方向の動きを Ctrl + ↑ に
-            &kp LC(DOWN)        // 下方向の動きを Ctrl + ↓ に
-            &kp LC(LEFT)        // 左方向の動きを Ctrl + ← に
-            &kp LC(RIGHT)       // 右方向の動きを Ctrl + → に
+            &kp LC(UP)
+            &kp LC(DOWN)
+            &kp LC(LEFT)
+            &kp LC(RIGHT)
         >;
 
 
