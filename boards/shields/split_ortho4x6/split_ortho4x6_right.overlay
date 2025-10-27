@@ -60,8 +60,10 @@
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
             &zip_temp_layer 4 10000
-            &zip_x_scaler 29 17
-            &zip_y_scaler 29 17
+            /* &zip_x_scaler 29 17 */
+            /* &zip_y_scaler 29 17 */
+            &zip_x_scaler 50 25   /* X方向スピード調整 */
+            &zip_y_scaler 50 25   /* Y方向スピード調整 */
         >;
 
         scroller {
