@@ -19,26 +19,26 @@
             label = "B1";
         };
 
-        behavior_kp_up: kp_up {
-            compatible = "zmk,behavior-key";
-            label = "UP";
-            key = <UP>;
-        };
-        behavior_kp_down: kp_down {
-            compatible = "zmk,behavior-key";
-            label = "DOWN";
-            key = <DOWN>;
-        };
-        behavior_kp_left: kp_left {
-            compatible = "zmk,behavior-key";
-            label = "LEFT";
-            key = <LEFT>;
-        };
-        behavior_kp_right: kp_right {
-            compatible = "zmk,behavior-key";
-            label = "RIGHT";
-            key = <RIGHT>;
-        };
+        // behavior_kp_up: kp_up {
+        //     compatible = "zmk,behavior-key";
+        //     label = "UP";
+        //     key = <UP>;
+        // };
+        // behavior_kp_down: kp_down {
+        //     compatible = "zmk,behavior-key";
+        //     label = "DOWN";
+        //     key = <DOWN>;
+        // };
+        // behavior_kp_left: kp_left {
+        //     compatible = "zmk,behavior-key";
+        //     label = "LEFT";
+        //     key = <LEFT>;
+        // };
+        // behavior_kp_right: kp_right {
+        //     compatible = "zmk,behavior-key";
+        //     label = "RIGHT";
+        //     key = <RIGHT>;
+        // };
     };
 
     behaviors {
