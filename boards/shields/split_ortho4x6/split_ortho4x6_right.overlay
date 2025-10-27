@@ -73,23 +73,6 @@
             >;
             process-next;
         };
-
-        gesture_operation {
-            compatible = "zmk,input-gesture-operation"; /* モジュール側の compatible を参照 */
-            layers = <2>; /* 有効にするレイヤー */
-
-            input-processors = <
-                &zip_gestures
-            >;
-
-            bindings = <
-                &behavior_kp_up
-                &behavior_kp_down
-                &behavior_kp_left
-                &behavior_kp_right
-            >;
-            process-next;
-        };
     };
 
     split_inputs {
