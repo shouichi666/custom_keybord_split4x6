@@ -63,10 +63,10 @@
 
         layer_0 {
             bindings = <
-&kp Q           &kp W         &kp E             &kp R                        &kp T                   &behaviorHoldTap180 6 LS(LG(R))  &kp ESC        &kp Y                             &kp U  &kp I      &kp O       &kp P
-&kp A           &kp S         &kp D             &kp F                        &kp G                                                    &kp ENTER      &kp H                             &kp J  &kp K      &kp L       &behaviorHoldTap150 RSHIFT MINUS
-&kp Z           &kp X         &kp C             &kp V                        &kp B                                                                   &kp N                             &kp M  &kp COMMA  &kp PERIOD  &kp TAB
-&kp LEFT_SHIFT  &kp LEFT_ALT  &kp LEFT_CONTROL  &behaviorHoldTap180 2 LA(F)  &mt LEFT_COMMAND LANG2  &kp SPACE                        &kp BACKSPACE  &behaviorHoldTap180 1 LANGUAGE_1                                &kp ESCAPE
+&kp Q           &kp W         &kp E             &kp R                          &kp T                   &behaviorHoldTap180 6 LA(F)  &kp ESCAPE     &kp Y                             &kp U  &kp I      &kp O       &kp P
+&kp A           &kp S         &kp D             &kp F                          &kp G                                                &kp ENTER      &kp H                             &kp J  &kp K      &kp L       &behaviorHoldTap150 RSHIFT MINUS
+&kp Z           &kp X         &kp C             &kp V                          &kp B                                                               &kp N                             &kp M  &kp COMMA  &kp PERIOD  &kp TAB
+&kp LEFT_SHIFT  &kp LEFT_ALT  &kp LEFT_CONTROL  &behaviorHoldTap180 2 LA(TAB)  &mt LEFT_COMMAND LANG2  &kp SPACE                    &kp BACKSPACE  &behaviorHoldTap180 1 LANGUAGE_1                                &kp ESCAPE
             >;
         };
 
