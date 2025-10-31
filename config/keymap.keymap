@@ -65,6 +65,11 @@
             bindings = <&kp LEFT_SHIFT>;
             key-positions = <38 39>;
         };
+
+        backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <19 20>;
+        };
     };
 
     keymap {
